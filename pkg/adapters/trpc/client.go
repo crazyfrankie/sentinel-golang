@@ -10,8 +10,6 @@ import (
 
 // SentinelClientFilter returns a new trpc client filter wrapped with Sentinel entry.
 // Default resource name is {CalleeServiceName}:{ClientRPCName}.
-// Default block fallback is returning the block error.
-// Define your own behavior by setting options.
 func SentinelClientFilter(opts ...Option) filter.ClientFilter {
 	options := newOptions(opts)
 	return func(ctx context.Context, req, rsp interface{}, next filter.ClientHandleFunc) error {
